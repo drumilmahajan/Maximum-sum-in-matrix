@@ -9,9 +9,8 @@ def maximum_sum(p):
     
     max_sum =  [[0]*len(p[0]) for i in range(len(p))]
     
-    for j in range(0,len(p)):
-        for i in range(0,len(p[0])):
-            
+    for j in range(0,len(p[0])):
+        for i in range(0,len(p)):            
             if i == 0 and j == 0:
                 max_sum[i][j] = p[i][j]
             
@@ -27,7 +26,7 @@ def maximum_sum(p):
                 else:
                     max_sum[i][j] = max_sum[i][j-1] + p[i][j]
                                
-    return max_sum[len(p[0])-1][len(p)-1]                
+    return max_sum[len(p)-1][len(p[0])-1]                
                         
 
  
@@ -35,12 +34,15 @@ def maximum_sum(p):
 def main():
     
     rows = int(raw_input("Enter the number of rows in the matrix "))
-    columns = int(raw_input("Enter the number of rows in the matrix "))
+    columns = int(raw_input("Enter the number of columns in the matrix "))
     matrix = []
-    for i in range(rows):
+    for i in range(0,rows):
         row = raw_input("Enter the " + str(i+1) + " row. Each row will have " + str(columns) + " elements.").split()
         row = [int(i) for i in row]
         matrix.append(row)
+    #print matrix
+    #max_sum =  [[0]*len(matrix[0]) for i in range(len(matrix))]
+    #print max_sum
     print maximum_sum(matrix)
       
 main()      
